@@ -10,7 +10,7 @@ def run_chronoforget_on_all_datasets(data_root='/home/phd/datasets/'):
     results = {}
 
     for dataset_name in DATASETS:
-        print(f"\n🔄 Processing dataset: {dataset_name}")
+        print(f"\n Processing dataset: {dataset_name}")
 
         if dataset_name == 'MIMIC-III':
             dl_forget = get_dataloader(dataset_name, root_dir=os.path.join(data_root, 'mimic'), batch_size=32)
@@ -58,6 +58,6 @@ def run_chronoforget_on_all_datasets(data_root='/home/phd/datasets/'):
 if __name__ == "__main__":
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     results = run_chronoforget_on_all_datasets()
-    print("\n📊 Performance Summary:")
+    print("\n Performance Summary:")
     for ds, model_dict in results.items():
         print(f"{ds}: Trained")
